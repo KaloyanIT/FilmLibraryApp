@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using FilmLibrary.Data;
 
 namespace FilmLibraryApp
 {
@@ -10,7 +9,7 @@ namespace FilmLibraryApp
     {
         public MainWindow()
         {
-            this.InitializeComponent();           
+            this.InitializeComponent();
         }
     }
 }
