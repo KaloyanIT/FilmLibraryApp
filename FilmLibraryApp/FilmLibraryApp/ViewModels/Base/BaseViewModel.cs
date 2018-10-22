@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace FilmLibraryApp.ViewModels.Base
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -19,5 +19,7 @@ namespace FilmLibraryApp.ViewModels.Base
 
             return false;
         }
+
+
     }
 }
