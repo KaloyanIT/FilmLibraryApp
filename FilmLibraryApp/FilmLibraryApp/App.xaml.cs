@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using FilmLibrary.Data;
+using FilmLibrary.Data.Repositories;
+using FilmLibrary.Data.Repositories.Contracts;
 using FilmLibraryApp.ViewModels;
 
 namespace FilmLibraryApp
@@ -19,14 +21,14 @@ namespace FilmLibraryApp
         {
             base.OnStartup(e);
 
-            MainWindow window = new MainWindow();
+            //MainWindow window = new MainWindow();
+            //ILibraryRepository libraryRepository = new LibraryRepository();
+            //var viewModel = new HomeViewModel(libraryRepository);
 
-            var viewModel = new HomeViewModel();
-
-            //viewModel.RequestClose += delegate { window.Close(); };
-
-            window.DataContext = viewModel;
-            window.Show();
+            ////viewModel.RequestClose += delegate { window.Close(); };
+            //App.Current.MainWindow = window;
+            //window.DataContext = viewModel;
+            //window.Show();
         }
     }
 }
