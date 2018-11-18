@@ -12,7 +12,7 @@ namespace FilmLibraryApp.Views
         public HomeView()
         {
             this.InitializeComponent();
-            this.DataContext = new HomeViewModel();
+            //this.DataContext = new HomeViewModel();
         }
     }
 }

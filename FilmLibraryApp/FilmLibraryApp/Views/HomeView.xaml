@@ -11,7 +11,7 @@
         mc:Ignorable="d"
         Height="450" Width="800">
     <Grid>
-        <StackPanel HorizontalAlignment = "Left">
+        <!--<StackPanel HorizontalAlignment = "Left">
 
             <ItemsControl ItemsSource = "{Binding Path = Libraries}">
 
@@ -24,8 +24,8 @@
                             <TextBox Text = "{Binding Path = Title, Mode = TwoWay}" 
                         Width = "100" Margin = "0 5 3 5"/>
 
-                            <!--<TextBlock Text = "{Binding Path = FullName, Mode = OneWay}" 
-                        Margin = "0 5 3 5"/>-->
+                            --><!--<TextBlock Text = "{Binding Path = FullName, Mode = OneWay}" 
+                        Margin = "0 5 3 5"/>--><!--
 
                         </StackPanel>
                     </DataTemplate>
@@ -33,7 +33,7 @@
 
             </ItemsControl>
 
-        </StackPanel>
+        </StackPanel>-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />

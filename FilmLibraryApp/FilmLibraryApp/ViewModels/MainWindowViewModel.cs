@@ -32,8 +32,8 @@ namespace FilmLibraryApp.ViewModels
             }
             set
             {
-                this.currentViewModel = value;
                 this.SetProperty(ref this.currentViewModel, value, "CurrentViewModel");
+                this.currentViewModel = value;
             }
         }
 
