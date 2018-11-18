@@ -11,8 +11,9 @@ namespace FilmLibraryApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel vm)
         {
+            this.DataContext = vm;
             this.InitializeComponent();
         }
 

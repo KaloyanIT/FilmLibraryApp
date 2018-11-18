@@ -8,7 +8,9 @@ using System.Windows;
 using FilmLibrary.Data;
 using FilmLibrary.Data.Repositories;
 using FilmLibrary.Data.Repositories.Contracts;
+using FilmLibraryApp.Common;
 using FilmLibraryApp.ViewModels;
+using Ninject;
 
 namespace FilmLibraryApp
 {
@@ -17,14 +19,21 @@ namespace FilmLibraryApp
     /// </summary>
     public partial class App : Application
     {
+        private IKernel iocKernel;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            MainWindow app = new MainWindow();
-            MainWindowViewModel context = new MainWindowViewModel();
+            this.iocKernel = new StandardKernel();
+            this.iocKernel.Load(new IocConfiguration());
 
-            app.DataContext = context;
+            var app = this.iocKernel.Get<MainWindow>();
+
+            //MainWindow app = new MainWindow();
+            //MainWindowViewModel context = new MainWindowViewModel();
+
+            //app.DataContext = context;
             app.Show();
 
             //MainWindow window = new MainWindow();

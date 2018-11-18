@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
+using FilmLibraryApp.ViewModels;
+using Ninject;
 
 namespace FilmLibraryApp.VML
 {
-    public static class ViewModelLocator
+    public class ViewModelLocator
     {
         public static bool GetAutoHookedUpViewModel(DependencyObject obj)
         {
@@ -15,6 +17,15 @@ namespace FilmLibraryApp.VML
         {
             obj.SetValue(AutoHookedUpViewModelProperty, value);
         }
+
+        //Views
+        //public HomeViewModel HomeViewModel
+        //{
+        //    get
+        //    {
+        //        return IocKernel.
+        //    }
+        //}
 
         // Using a DependencyProperty as the backing store for AutoHookedUpViewModel. 
 
@@ -37,6 +48,8 @@ namespace FilmLibraryApp.VML
             var viewModelTypeName = viewTypeName + "Model";
             var viewModelType = Type.GetType(viewModelTypeName);
             var viewModel = Activator.CreateInstance(viewModelType);
+
+            //Add get by type t from ioc container!!!
 
             ((FrameworkElement)d).DataContext = viewModel;
         }
