@@ -1,9 +1,17 @@
 ﻿<Application x:Class="FilmLibraryApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FilmLibraryApp"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:FilmLibraryApp.Views"
+             xmlns:viewModels ="clr-namespace:FilmLibraryApp.ViewModels">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+            <local:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:FilmViewModel}">
+            <local:FilmView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:LibraryViewModel}">
+            <local:LibraryView />
+        </DataTemplate>
     </Application.Resources>
 </Application>

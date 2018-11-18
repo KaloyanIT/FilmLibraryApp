@@ -9,12 +9,16 @@ namespace FilmLibraryApp.Commands
         private readonly Action<object> executeAction;
         private readonly Func<object, bool> canExecuteAction;
 
+        public DelegateCommand(Action<object> executeAction) : this(executeAction, null)
+        {
+            this.executeAction = executeAction;
+        }
+
         public DelegateCommand(Action<object> executeAction, Func<object, bool> canExecuteAction)
         {
             this.executeAction = executeAction;
             this.canExecuteAction = canExecuteAction;
         }
-
 
         public bool CanExecute(object parameter)
         {

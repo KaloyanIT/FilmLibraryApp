@@ -21,6 +21,12 @@ namespace FilmLibraryApp
         {
             base.OnStartup(e);
 
+            MainWindow app = new MainWindow();
+            MainWindowViewModel context = new MainWindowViewModel();
+
+            app.DataContext = context;
+            app.Show();
+
             //MainWindow window = new MainWindow();
             //ILibraryRepository libraryRepository = new LibraryRepository();
             //var viewModel = new HomeViewModel(libraryRepository);

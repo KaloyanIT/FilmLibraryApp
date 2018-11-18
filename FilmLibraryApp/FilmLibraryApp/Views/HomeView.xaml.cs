@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using FilmLibraryApp.ViewModels;
 
 namespace FilmLibraryApp.Views
 {
@@ -11,6 +12,7 @@ namespace FilmLibraryApp.Views
         public HomeView()
         {
             this.InitializeComponent();
+            this.DataContext = new HomeViewModel();
         }
     }
 }

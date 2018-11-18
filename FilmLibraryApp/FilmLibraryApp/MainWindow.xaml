@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
         <Grid>
-            <views:HomeView x:Name="HomeViewControl" Loaded = "HomeViewControl_Loaded"/>
-        </Grid>
+            <!--<views:HomeView x:Name="HomeViewControl" Loaded = "HomeViewControl_Loaded"/>-->
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
 </Window>

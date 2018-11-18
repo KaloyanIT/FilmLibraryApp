@@ -1,18 +1,23 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using FilmLibrary.Data.Models;
 using FilmLibrary.Data.Repositories.Contracts;
 using FilmLibraryApp.Commands;
+using FilmLibraryApp.Common;
 using FilmLibraryApp.ViewModels.Base;
+using FilmLibraryApp.ViewModels.Contracts;
 
 namespace FilmLibraryApp.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : BaseViewModel, ICanNavigateViewModel
     {
         private readonly ILibraryRepository libraryRepository;
+        private ICommand goToFilmScreen;
+        private ICommand goToLibraryScreen;
 
-        public HomeViewModel(ILibraryRepository libraryRepository)
+        public HomeViewModel()
         {
-            this.libraryRepository = libraryRepository;
+            this.LoadLibraries();
         }
 
         public DelegateCommand RequestClose { get; internal set; }
@@ -28,6 +33,28 @@ namespace FilmLibraryApp.ViewModels
             );
 
             this.Libraries = libraries;
+        }
+
+        public ICommand GoToFilmScreen
+        {
+            get
+            {
+                return this.goToFilmScreen ?? (this.goToFilmScreen = new RelayCommand(x =>
+                {
+                    Mediator.Notify("GoToFilmScreen", "");
+                }));
+            }
+        }
+
+        public ICommand GoToLibraryScreen
+        {
+            get
+            {
+                return this.goToLibraryScreen ?? (this.goToLibraryScreen = new RelayCommand(x =>
+                {
+                    Mediator.Notify("GoToLibraryScreen", "");
+                }));
+            }
         }
     }
 }

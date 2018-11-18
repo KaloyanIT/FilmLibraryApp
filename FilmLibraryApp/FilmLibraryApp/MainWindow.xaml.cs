@@ -18,11 +18,11 @@ namespace FilmLibraryApp
 
         private void HomeViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            ILibraryRepository libraryRepository = new LibraryRepository();
-            HomeViewModel homeViewModelObject = new HomeViewModel(libraryRepository);
-            homeViewModelObject.LoadLibraries();
+            //ILibraryRepository libraryRepository = new LibraryRepository();
+            //HomeViewModel homeViewModelObject = new HomeViewModel();
+            //homeViewModelObject.LoadLibraries();
 
-            this.HomeViewControl.DataContext = homeViewModelObject;
+            //this.HomeViewControl.DataContext = homeViewModelObject;
         }
     }
 }
