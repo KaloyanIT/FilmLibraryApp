@@ -1,46 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FilmLibraryApp.Common
 {
     public static class Mediator
     {
-        private static IDictionary<string, List<Action<object>>> pl_dict =
-           new Dictionary<string, List<Action<object>>>();
+        private static IDictionary<string, ICollection<Action<object>>> navigationDictionary =
+           new Dictionary<string, ICollection<Action<object>>>();
 
         public static void Subscribe(string token, Action<object> callback)
         {
-            if (!pl_dict.ContainsKey(token))
+            if (!navigationDictionary.ContainsKey(token))
             {
-                var list = new List<Action<object>>();
-                list.Add(callback);
-                pl_dict.Add(token, list);
+                var callbackCollection = new List<Action<object>>();
+                callbackCollection.Add(callback);
+                navigationDictionary.Add(token, callbackCollection);
             }
             else
             {
                 bool found = false;
-                foreach (var item in pl_dict[token])
+                foreach (var item in navigationDictionary[token])
+                {
                     if (item.Method.ToString() == callback.Method.ToString())
+                    {
                         found = true;
+                    }                        
+                }
                 if (!found)
-                    pl_dict[token].Add(callback);
+                {
+                    navigationDictionary[token].Add(callback);
+                }
+                    
             }
         }
 
         public static void Unsubscribe(string token, Action<object> callback)
         {
-            if (pl_dict.ContainsKey(token))
-                pl_dict[token].Remove(callback);
+            if (navigationDictionary.ContainsKey(token))
+            {
+                navigationDictionary[token].Remove(callback);
+            }
         }
 
         public static void Notify(string token, object args = null)
         {
-            if (pl_dict.ContainsKey(token))
-                foreach (var callback in pl_dict[token])
+            if (navigationDictionary.ContainsKey(token))
+            {
+                foreach (var callback in navigationDictionary[token])
+                {
                     callback(args);
+                }
+            }
         }
     }
 }
