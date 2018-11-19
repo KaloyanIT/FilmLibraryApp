@@ -12,10 +12,12 @@ namespace FilmLibraryApp.Common
     {
         public override void Load()
         {
-            this.Bind<MainWindowViewModel>().ToSelf().InTransientScope();
+            this.Bind<MainWindowViewModel>().ToSelf().InSingletonScope();
             this.Bind<MainWindow>().ToSelf().InTransientScope();
 
-
+            this.Bind<FilmViewModel>().ToSelf().InSingletonScope();
+            this.Bind<LibraryViewModel>().ToSelf().InSingletonScope();
+            this.Bind<HomeViewModel>().ToSelf().InSingletonScope();
         }
     }
 }

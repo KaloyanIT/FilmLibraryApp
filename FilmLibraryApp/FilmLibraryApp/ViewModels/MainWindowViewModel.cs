@@ -3,6 +3,7 @@ using System.Linq;
 using FilmLibraryApp.Common;
 using FilmLibraryApp.ViewModels.Base;
 using FilmLibraryApp.ViewModels.Contracts;
+using Ninject;
 
 namespace FilmLibraryApp.ViewModels
 {
@@ -62,11 +63,11 @@ namespace FilmLibraryApp.ViewModels
             this.ChangeViewModel(this.CanNavigateViewModels.ElementAt(2));
         }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IKernel kernel)
         {
-            this.CanNavigateViewModels.Add(new HomeViewModel());
-            this.CanNavigateViewModels.Add(new LibraryViewModel());
-            this.CanNavigateViewModels.Add(new FilmViewModel());
+            this.CanNavigateViewModels.Add(kernel.Get<HomeViewModel>());
+            this.CanNavigateViewModels.Add(kernel.Get<LibraryViewModel>());
+            this.CanNavigateViewModels.Add(kernel.Get<FilmViewModel>());
 
             this.CurrentViewModel = this.CanNavigateViewModels.ElementAt(0);
 

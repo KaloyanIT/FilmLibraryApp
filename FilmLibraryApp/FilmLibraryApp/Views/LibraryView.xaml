@@ -10,20 +10,23 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="14*" />
         </Grid.RowDefinitions>
-        <Button
-            Grid.Row="0"
+
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"  Grid.Row="0">
+            <Button
             Content="Home"
             Command="{Binding GoToHomeScreen }"
             Width="90" Height="30"
             />
-        <Button
-            Grid.Row="1"
+
+            <Button
             Content="Films"
             Command="{Binding GoToFilmScreen }"
             Width="90" Height="30"
             />
+
+        </StackPanel>
     </Grid>
 </UserControl>
