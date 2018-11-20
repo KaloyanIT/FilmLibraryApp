@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using FilmLibrary.Data;
 using FilmLibrary.Data.Repositories;
 using FilmLibrary.Data.Repositories.Contracts;
@@ -44,6 +45,13 @@ namespace FilmLibraryApp
             //App.Current.MainWindow = window;
             //window.DataContext = viewModel;
             //window.Show();
+        }
+
+        private void APP_DispatcherUnhandledException(object sender,
+           DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message);
+            e.Handled = true;
         }
     }
 }

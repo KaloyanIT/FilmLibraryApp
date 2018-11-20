@@ -1,5 +1,6 @@
 ﻿using FilmLibrary.Data.Repositories;
 using FilmLibrary.Data.Repositories.Contracts;
+using FilmLibraryApp.Models.Library;
 using FilmLibraryApp.ViewModels;
 using FilmLibraryApp.ViewModels.Library;
 using Ninject.Modules;
@@ -13,11 +14,17 @@ namespace FilmLibraryApp.Common
             this.Bind<MainWindowViewModel>().ToSelf().InSingletonScope();
             this.Bind<MainWindow>().ToSelf().InTransientScope();
 
+            //ViewModels
             this.Bind<FilmViewModel>().ToSelf().InSingletonScope();
             this.Bind<CreateFilmViewModel>().ToSelf().InSingletonScope();
             this.Bind<LibraryViewModel>().ToSelf().InSingletonScope();
             this.Bind<CreateLibraryViewModel>().ToSelf().InSingletonScope();
             this.Bind<HomeViewModel>().ToSelf().InSingletonScope();
+
+            //Models
+            this.Bind<LibraryModel>().ToSelf().InSingletonScope();
+
+
             this.Bind<IFilmRepository>().To<FilmRepository>().InSingletonScope();
             this.Bind<ILibraryRepository>().To<LibraryRepository>().InSingletonScope();
         }

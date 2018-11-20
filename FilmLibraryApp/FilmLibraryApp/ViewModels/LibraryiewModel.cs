@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using FilmLibraryApp.Commands;
 using FilmLibraryApp.Common;
+using FilmLibraryApp.Models.Library;
 using FilmLibraryApp.ViewModels.Base;
 using FilmLibraryApp.ViewModels.Contracts;
+using Ninject;
 
 namespace FilmLibraryApp.ViewModels
 {
@@ -16,9 +18,23 @@ namespace FilmLibraryApp.ViewModels
         private ICommand goToFilmScreen;
         private ICommand goToCreateLibraryScreen;
         private ICommand goToHomeScreen;
-        public LibraryViewModel()
+        private ICommand getAllLibraries;
+
+        public LibraryViewModel(LibraryModel libraries)
         {
+            this.Libraries = libraries;
         }
+
+ 
+        public LibraryModel Libraries { get; set; }
+
+        //public ICommand GetAllLibraries
+        //{
+        //    get
+        //    {
+
+        //    }
+        //}
 
         public ICommand GoToFilmScreen
         {

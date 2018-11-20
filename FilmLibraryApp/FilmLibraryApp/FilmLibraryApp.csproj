@@ -66,6 +66,8 @@
     <Compile Include="Common\Mediator.cs" />
     <Compile Include="Models\FilmModel.cs" />
     <Compile Include="Models\FilmPOCO.cs" />
+    <Compile Include="Models\Library\LibraryModel.cs" />
+    <Compile Include="Models\Library\LibraryPOCO.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Contracts\ICanNavigateViewModel.cs" />
     <Compile Include="ViewModels\CreateFilmViewModel.cs" />

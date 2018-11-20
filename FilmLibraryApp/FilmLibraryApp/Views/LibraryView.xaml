@@ -34,5 +34,21 @@
             />
 
         </StackPanel>
+        <ListView  Grid.Row="2" BorderBrush="White"
+
+                   ItemsSource="{Binding Path=Libraries}"
+
+                   HorizontalAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id"
+                                    DisplayMemberBinding="{Binding Path=Id}" />
+                    <GridViewColumn Header="Title"
+                                    DisplayMemberBinding="{Binding Path=Title}" />
+                    <GridViewColumn Header="DateCreated"
+                                    DisplayMemberBinding="{Binding Path=DateCreated}" />
+                </GridView>
+            </ListView.View>
+        </ListView >
     </Grid>
 </UserControl>

@@ -38,20 +38,20 @@ namespace FilmLibraryApp.VML
         private static void AutoHookedUpViewModelChanged(DependencyObject d,
            DependencyPropertyChangedEventArgs e)
         {
-            if (DesignerProperties.GetIsInDesignMode(d)) return;
-            var viewType = d.GetType();
+            //if (DesignerProperties.GetIsInDesignMode(d)) return;
+            //var viewType = d.GetType();
 
-            string str = viewType.FullName;
-            str = str.Replace(".Views.", ".ViewModels.");
+            //string str = viewType.FullName;
+            //str = str.Replace(".Views.", ".ViewModels.");
 
-            var viewTypeName = str;
-            var viewModelTypeName = viewTypeName + "Model";
-            var viewModelType = Type.GetType(viewModelTypeName);
-            var viewModel = Activator.CreateInstance(viewModelType);
+            //var viewTypeName = str;
+            //var viewModelTypeName = viewTypeName + "Model";
+            //var viewModelType = Type.GetType(viewModelTypeName);
+            //var viewModel = Activator.CreateInstance(viewModelType);
 
-            //Add get by type t from ioc container!!!
+            ////Add get by type t from ioc container!!!
 
-            ((FrameworkElement)d).DataContext = viewModel;
+            //((FrameworkElement)d).DataContext = viewModel;
         }
     }
 }

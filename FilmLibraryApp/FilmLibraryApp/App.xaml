@@ -5,6 +5,7 @@
              xmlns:libraryViews="clr-namespace:FilmLibraryApp.Views.Library"
              xmlns:vml="clr-namespace:FilmLibraryApp.VML"
              xmlns:viewModels ="clr-namespace:FilmLibraryApp.ViewModels"
+             DispatcherUnhandledException="APP_DispatcherUnhandledException"
     xmlns:libraryViewModels ="clr-namespace:FilmLibraryApp.ViewModels.Library">
     <Application.Resources>
         <vml:ViewModelLocator x:Key="ViewModelLocator"/>
