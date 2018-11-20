@@ -38,7 +38,14 @@ namespace FilmLibraryApp.Models.Library
 
         public void AddLibrary(string title)
         {
+            var library = this.libraryRepository.Create(title);
 
+            var currLib = new LibraryPOCO();
+            currLib.Id = library.Id;
+            currLib.Title = library.Title;
+            currLib.DateCreated = library.DateCreated;
+
+            this.Add(currLib);
         }
     }
 }

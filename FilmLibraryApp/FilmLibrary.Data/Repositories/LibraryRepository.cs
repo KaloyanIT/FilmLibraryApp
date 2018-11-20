@@ -33,6 +33,16 @@ namespace FilmLibrary.Data.Repositories
             return this.libraries.AsQueryable();
         }
 
+        public Library Create(string title)
+        {
+            var library = new Library();
+            library.Id = this.libraries.Last().Id + 1;
+            library.Title = title;
+            library.DateCreated = DateTime.Now;
+
+            return library;
+        }
+
         public Library GetLibraryById(int id)
         {
             var library = this.libraries.Where(x => x.Id == id).FirstOrDefault();

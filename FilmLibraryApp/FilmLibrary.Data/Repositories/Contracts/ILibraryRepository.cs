@@ -8,5 +8,7 @@ namespace FilmLibrary.Data.Repositories.Contracts
         Library GetLibraryById(int id);
 
         IQueryable<Library> GetAllLibraries();
+
+        Library Create(string title);
     }
 }
