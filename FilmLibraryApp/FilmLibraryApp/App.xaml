@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:FilmLibraryApp.Views"
+             xmlns:libraryViews="clr-namespace:FilmLibraryApp.Views.Library"
              xmlns:vml="clr-namespace:FilmLibraryApp.VML"
-             xmlns:viewModels ="clr-namespace:FilmLibraryApp.ViewModels">
+             xmlns:viewModels ="clr-namespace:FilmLibraryApp.ViewModels"
+    xmlns:libraryViewModels ="clr-namespace:FilmLibraryApp.ViewModels.Library">
     <Application.Resources>
         <vml:ViewModelLocator x:Key="ViewModelLocator"/>
         <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
@@ -17,6 +19,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:CreateFilmViewModel}">
             <local:CreateFilmView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type libraryViewModels:CreateLibraryViewModel}">
+            <libraryViews:CreateLibraryView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

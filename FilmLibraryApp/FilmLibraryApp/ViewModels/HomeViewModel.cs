@@ -17,23 +17,23 @@ namespace FilmLibraryApp.ViewModels
 
         public HomeViewModel()
         {
-            this.LoadLibraries();
+            //this.LoadLibraries();
         }
 
         public DelegateCommand RequestClose { get; internal set; }
 
-        public ObservableCollection<Library> Libraries { get; set; }
+        public ObservableCollection<FilmLibrary.Data.Models.Library> Libraries { get; set; }
 
-        public void LoadLibraries()
-        {
-            ObservableCollection<Library> libraries = new ObservableCollection<Library>();
+        //public void LoadLibraries()
+        //{
+        //    ObservableCollection<Library> libraries = new ObservableCollection<Library>();
 
-            libraries.Add(
-                new Library() { Id = 0, Title = "Test1" }
-            );
+        //    libraries.Add(
+        //        new Library() { Id = 0, Title = "Test1" }
+        //    );
 
-            this.Libraries = libraries;
-        }
+        //    this.Libraries = libraries;
+        //}
 
         public ICommand GoToFilmScreen
         {

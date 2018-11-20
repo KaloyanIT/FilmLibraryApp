@@ -3,6 +3,7 @@ using System.Linq;
 using FilmLibraryApp.Common;
 using FilmLibraryApp.ViewModels.Base;
 using FilmLibraryApp.ViewModels.Contracts;
+using FilmLibraryApp.ViewModels.Library;
 using Ninject;
 
 namespace FilmLibraryApp.ViewModels
@@ -68,12 +69,19 @@ namespace FilmLibraryApp.ViewModels
             this.ChangeViewModel(this.CanNavigateViewModels.ElementAt(3));
         }
 
+        private void OnGoCreateLibraryScreen(object obj)
+        {
+            this.ChangeViewModel(this.CanNavigateViewModels.ElementAt(4));
+        }
+
         public MainWindowViewModel(IKernel kernel)
         {
             this.CanNavigateViewModels.Add(kernel.Get<HomeViewModel>());
             this.CanNavigateViewModels.Add(kernel.Get<LibraryViewModel>());
             this.CanNavigateViewModels.Add(kernel.Get<FilmViewModel>());
             this.canNavigateViewModels.Add(kernel.Get<CreateFilmViewModel>());
+            this.CanNavigateViewModels.Add(kernel.Get<CreateLibraryViewModel>());
+
 
             this.CurrentViewModel = this.CanNavigateViewModels.ElementAt(0);
 
@@ -81,6 +89,7 @@ namespace FilmLibraryApp.ViewModels
             Mediator.Subscribe("GoToLibraryScreen", this.OnGoLibraryScreen);
             Mediator.Subscribe("GoToFilmScreen", this.OnGoFilmScreen);
             Mediator.Subscribe("GoToCreateFilmScreen", this.OnGoCreateFilmScreen);
+            Mediator.Subscribe("GoToCreateLibraryScreen", this.OnGoCreateLibraryScreen);
         }
     }
 }

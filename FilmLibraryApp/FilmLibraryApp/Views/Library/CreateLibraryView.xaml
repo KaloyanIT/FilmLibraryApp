@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="FilmLibraryApp.Views.LibraryView"
+﻿<UserControl x:Class="FilmLibraryApp.Views.Library.CreateLibraryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FilmLibraryApp.Views"
-              xmlns:vml = "clr-namespace:FilmLibraryApp.VML"               
-              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
+             xmlns:local="clr-namespace:FilmLibraryApp.Views.Library"
+                         xmlns:vml = "clr-namespace:FilmLibraryApp.VML"               
+              vml:ViewModelLocator.AutoHookedUpViewModel = "True"  
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -15,24 +15,14 @@
         </Grid.RowDefinitions>
 
         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"  Grid.Row="0">
-            <Button
-            Content="Home"
-            Command="{Binding GoToHomeScreen }"
-            Width="90" Height="30"
-            />
 
             <Button
-            Content="Films"
-            Command="{Binding GoToFilmScreen }"
-            Width="90" Height="30"
-            />
-
-            <Button
-            Content="Create library"
-            Command="{Binding GoToCreateLibraryScreen }"
+            Content="Bakc to libraries"
+            Command="{Binding GoToLibraryScreen }"
             Width="90" Height="30"
             />
 
         </StackPanel>
+
     </Grid>
 </UserControl>
