@@ -10,9 +10,20 @@ namespace FilmLibraryApp.ViewModels
     {
         private ICommand goToHomeScreen;
         private ICommand goToLibraryScreen;
-
+        private ICommand goToCreateFilmScreen;
         public FilmViewModel()
         {
+        }
+
+        public ICommand GoToCreateFilmScreen
+        {
+            get
+            {
+                return this.goToCreateFilmScreen ?? (this.goToCreateFilmScreen = new RelayCommand(x =>
+                {
+                    Mediator.Notify("GoToCreateFilmScreen", "");
+                }));
+            }
         }
 
         public ICommand GoToHomeScreen

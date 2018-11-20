@@ -63,17 +63,24 @@ namespace FilmLibraryApp.ViewModels
             this.ChangeViewModel(this.CanNavigateViewModels.ElementAt(2));
         }
 
+        private void OnGoCreateFilmScreen(object obj)
+        {
+            this.ChangeViewModel(this.CanNavigateViewModels.ElementAt(3));
+        }
+
         public MainWindowViewModel(IKernel kernel)
         {
             this.CanNavigateViewModels.Add(kernel.Get<HomeViewModel>());
             this.CanNavigateViewModels.Add(kernel.Get<LibraryViewModel>());
             this.CanNavigateViewModels.Add(kernel.Get<FilmViewModel>());
+            this.canNavigateViewModels.Add(kernel.Get<CreateFilmViewModel>());
 
             this.CurrentViewModel = this.CanNavigateViewModels.ElementAt(0);
 
             Mediator.Subscribe("GoToHomeScreen", this.OnGoHomeScreen);
             Mediator.Subscribe("GoToLibraryScreen", this.OnGoLibraryScreen);
             Mediator.Subscribe("GoToFilmScreen", this.OnGoFilmScreen);
+            Mediator.Subscribe("GoToCreateFilmScreen", this.OnGoCreateFilmScreen);
         }
     }
 }

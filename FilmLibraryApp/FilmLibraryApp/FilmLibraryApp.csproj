@@ -64,12 +64,18 @@
     <Compile Include="Common\EventRaiser.cs" />
     <Compile Include="Common\IocConfiguration.cs" />
     <Compile Include="Common\Mediator.cs" />
+    <Compile Include="Models\FilmModel.cs" />
+    <Compile Include="Models\FilmPOCO.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Contracts\ICanNavigateViewModel.cs" />
+    <Compile Include="ViewModels\CreateFilmViewModel.cs" />
     <Compile Include="ViewModels\FilmViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LibraryiewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\CreateFilmView.xaml.cs">
+      <DependentUpon>CreateFilmView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FilmView.xaml.cs">
       <DependentUpon>FilmView.xaml</DependentUpon>
     </Compile>
@@ -92,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CreateFilmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FilmView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,8 +152,6 @@
       <Name>FilmLibrary.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

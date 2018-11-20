@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FilmLibrary.Data.Repositories;
+using FilmLibrary.Data.Repositories.Contracts;
 using FilmLibraryApp.ViewModels;
 using Ninject.Modules;
 
@@ -16,8 +13,11 @@ namespace FilmLibraryApp.Common
             this.Bind<MainWindow>().ToSelf().InTransientScope();
 
             this.Bind<FilmViewModel>().ToSelf().InSingletonScope();
+            this.Bind<CreateFilmViewModel>().ToSelf().InSingletonScope();
             this.Bind<LibraryViewModel>().ToSelf().InSingletonScope();
             this.Bind<HomeViewModel>().ToSelf().InSingletonScope();
+            this.Bind<IFilmRepository>().To<FilmRepository>().InSingletonScope();
+            this.Bind<ILibraryRepository>().To<LibraryRepository>().InSingletonScope();
         }
     }
 }
